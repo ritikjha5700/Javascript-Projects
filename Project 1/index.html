@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="btn-1" onclick="">Add to bag</button>
+    <button class="btn-2">Move to wishlist</button>
+    <button id="btn-3">Add 2 items</button>
+    <p id="bag-summary">Current bag size 0</p>
+    <script>
+        var itemsCount = 0;
+        var btn1 = document.querySelector('#btn-1');
+        var btn2 = document.querySelector('.btn-2');
+        var btn3 = document.querySelector('#btn-3');
+        var bagSummary = document.querySelector('#bag-summary');
+
+        btn1.addEventListener('click', function() {
+            itemsCount += 1;
+            bagSummary.innerText = `Current bag size ${itemsCount}`;
+        })
+        btn2.addEventListener('click', function() {
+            itemsCount -= 1;
+            bagSummary.innerText = `Current bag size ${itemsCount}`;
+        })
+        btn3.addEventListener('click', function() {
+            console.log('clicked');
+            itemsCount += 2;
+            bagSummary.innerText = `Current bag size ${itemsCount}`;
+        })
+
+
+         
+    </script>
+</body>
+</html>

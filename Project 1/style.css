@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+#btn-1, #btn-3 {
+    background-color: lightgreen;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: x-large;
+    margin: 100px 10px;
+    cursor: pointer;
+}
+.btn-2 {
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 5px 25px;
+    font-size: x-large;
+    margin: 100px 10px;
+    cursor: pointer;
+}
+p {
+    margin-left: 40%;
+    margin-top: 100px;
+    font-size: x-large;
+    font-weight: 400;
+}

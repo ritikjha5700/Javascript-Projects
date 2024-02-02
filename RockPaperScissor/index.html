@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: medium;
+            font-weight: bold;
+            background-color: black;
+            color: whitesmoke;
+            border-radius: 7px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissor Game</h1>
+    <button onclick="
+    
+    let compChoice = Math.random()*3;
+    let compChoiceMsg;
+
+    let matchResult;
+    
+    if(compChoice <= 1) {
+        matchResult = 'Match tie!';
+        compChoiceMsg = 'Rock🪨';
+    } else if(compChoice >1 && compChoice<=2) {
+        matchResult = 'System won!';
+        compChoiceMsg = 'Paper🧻';
+    } else {
+        matchResult = 'User Won!';
+        compChoiceMsg = 'Scissor✂️';
+    }
+
+    alert(`You chose Rock🪨 \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    "
+    >Rock🪨</button>
+
+    <button onclick="
+    compChoice = Math.random()*3;
+    
+    if(compChoice <= 1) {
+        matchResult = 'User Won!';
+        compChoiceMsg = 'Rock🪨';
+    } else if(compChoice >1 && compChoice<=2) {
+        matchResult = 'Match tie!';
+        compChoiceMsg = 'Paper🧻';
+    } else {
+        matchResult = 'System Won!';
+        compChoiceMsg = 'Scissor✂️';
+    }
+
+    alert(`You chose Paper🧻 \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    "
+    >Paper🧻</button>
+
+    <button onclick="
+    compChoice = Math.random()*3;
+    
+    if(compChoice <= 1) {
+        matchResult = 'System Won!';
+        compChoiceMsg = 'Rock🪨';
+    } else if(compChoice >1 && compChoice<=2) {
+        matchResult = 'User tie!';
+        compChoiceMsg = 'Paper🧻';
+    } else {
+        matchResult = 'Match tie!';
+        compChoiceMsg = 'Scissor✂️';
+    }
+
+    alert(`You chose Scissor✂️ \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    "
+    >Scissor✂️</button>
+</body>
+</html>
