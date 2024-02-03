@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- This is a project for if else, ternary operator. -->
+
+    <script>
+        let gender = prompt('Male/Female: ');
+        let age = prompt('Enter your age: ');
+
+        let fare = 100;
+        gender = gender.toLocaleLowerCase(); // to make code error free
+
+        if(gender == 'female') {
+            fare = age<=5 ? 0 : fare/=2;
+        } else if(gender == 'male') {
+            fare = age<= 5 ? 0 : (age >= 65 ? 70 : fare);
+        }
+        console.log(`Your fare is: ₹${fare}`);
+    </script>
+</body>
+</html>
