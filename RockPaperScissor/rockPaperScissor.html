@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Rock Paper Scissor Game</h1>
+    <button
+      onclick="
+    let compChose = getCompChoise();
+    
+    if(compChose === 'Rock🪨') {
+        matchResult = 'Match tie!';
+    } else if(compChose === 'Paper🧻') {
+        matchResult = 'System won!';
+    } else {
+        matchResult = 'User Won!';
+    }
+
+    alert(`You chose Rock🪨 \n System chose ${compChose}\n ${matchResult}`)
+    ">
+      Rock🪨
+    </button>
+
+    <button
+      onclick="
+    compChose = getCompChoise();
+    
+    if(compChose === 'Rock🪨') {
+        matchResult = 'User Won!';
+    } else if(compChose === 'Paper🧻') {
+        matchResult = 'Match tie!';
+    } else {
+        matchResult = 'System Won!';
+    }
+
+    alert(`You chose Paper🧻 \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    ">
+      Paper🧻
+    </button>
+
+    <button
+      onclick="
+    compChose = getCompChoise();
+    
+    if(compChose === 'Rock🪨') {
+        matchResult = 'System Won!';
+    } else if(compChose === 'Paper🧻') {
+        matchResult = 'User tie!';
+    } else {
+        matchResult = 'Match tie!';
+    }
+
+    alert(`You chose Scissor✂️ \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    ">
+      Scissor✂️
+    </button>
+
+    <script>
+      function getCompChoise() {
+        let compChoice = Math.random() * 3;
+        let compChose;
+
+        if (compChoice <= 1) {
+          compChose = "Rock🪨";
+        } else if (compChoice > 1 && compChoice <= 2) {
+          compChose = "Paper🧻";
+        } else {
+          compChose = "Scissor✂️";
+        }
+
+        return compChose;
+      }
+    </script>
+  </body>
+</html>
