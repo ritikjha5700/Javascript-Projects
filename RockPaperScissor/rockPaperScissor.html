@@ -11,16 +11,8 @@
     <button
       onclick="
     let compChose = getCompChoise();
-    
-    if(compChose === 'Rock🪨') {
-        matchResult = 'Match tie!';
-    } else if(compChose === 'Paper🧻') {
-        matchResult = 'System won!';
-    } else {
-        matchResult = 'User Won!';
-    }
-
-    alert(`You chose Rock🪨 \n System chose ${compChose}\n ${matchResult}`)
+    matchResult = getResult('Rock🪨', compChose);
+    alert(`You chose Rock🪨\nSystem chose ${compChose}\n${matchResult}`)
     ">
       Rock🪨
     </button>
@@ -28,16 +20,8 @@
     <button
       onclick="
     compChose = getCompChoise();
-    
-    if(compChose === 'Rock🪨') {
-        matchResult = 'User Won!';
-    } else if(compChose === 'Paper🧻') {
-        matchResult = 'Match tie!';
-    } else {
-        matchResult = 'System Won!';
-    }
-
-    alert(`You chose Paper🧻 \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    matchResult = getResult('Paper🧻', compChose);
+    alert(`You chose Paper🧻\nSystem chose ${compChose}\n${matchResult}`)
     ">
       Paper🧻
     </button>
@@ -45,16 +29,8 @@
     <button
       onclick="
     compChose = getCompChoise();
-    
-    if(compChose === 'Rock🪨') {
-        matchResult = 'System Won!';
-    } else if(compChose === 'Paper🧻') {
-        matchResult = 'User tie!';
-    } else {
-        matchResult = 'Match tie!';
-    }
-
-    alert(`You chose Scissor✂️ \n System chose ${compChoiceMsg}\n ${matchResult}`)
+    matchResult = getResult('Scissor✂️', compChose);
+    alert(`You chose Scissor✂️\nSystem chose ${compChose}\n${matchResult}`)
     ">
       Scissor✂️
     </button>
@@ -73,6 +49,22 @@
         }
 
         return compChose;
+      }
+
+      function getResult(userMove, compMove) {
+        let matchResult;
+
+        if (userMove === compMove) {
+          return "It's a tie!";
+        } else if (userMove === "Paper🧻" && compMove === "Rock🪨") {
+          return "You won!";
+        } else if (userMove === "Rock🪨" && compMove === "Scissor✂️") {
+          return "You won!";
+        } else if (userMove === "Scissor✂️" && compMove === "Paper🧻") {
+          return "You won!";
+        } else {
+          return "System Won!";
+        }
       }
     </script>
   </body>
