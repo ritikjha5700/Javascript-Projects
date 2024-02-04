@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Functions</title>
+  </head>
+  <body>
+    <script>
+      console.log(oddEven(32));
+      console.log(oddEven(33));
+
+      console.log(greatest(32, 33));
+      console.log(greatest(63, 7));
+      console.log(greatest(33, 33));
+
+      console.log(c2f(2));
+
+      function oddEven(num) {
+        return num % 2 ? "Odd" : "Even";
+      }
+      function greatest(num1, num2) {
+        return num1 > num2 ? num1 : num2;
+      }
+      function c2f(temp) {
+        return temp * (9 / 5) + 32;
+      }
+    </script>
+  </body>
+</html>

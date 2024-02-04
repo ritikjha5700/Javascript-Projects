@@ -12,7 +12,7 @@
       onclick="
     let compChose = getCompChoise();
     matchResult = getResult('Rock🪨', compChose);
-    alert(`You chose Rock🪨\nSystem chose ${compChose}\n${matchResult}`)
+    showResult('Rock🪨', compChose, matchResult);
     ">
       Rock🪨
     </button>
@@ -21,7 +21,7 @@
       onclick="
     compChose = getCompChoise();
     matchResult = getResult('Paper🧻', compChose);
-    alert(`You chose Paper🧻\nSystem chose ${compChose}\n${matchResult}`)
+    showResult('Paper🧻', compChose, matchResult);
     ">
       Paper🧻
     </button>
@@ -30,7 +30,7 @@
       onclick="
     compChose = getCompChoise();
     matchResult = getResult('Scissor✂️', compChose);
-    alert(`You chose Scissor✂️\nSystem chose ${compChose}\n${matchResult}`)
+    showResult('Scissor✂️', compChose, matchResult);
     ">
       Scissor✂️
     </button>
@@ -65,6 +65,12 @@
         } else {
           return "System Won!";
         }
+      }
+
+      function showResult(userMove, compMove, matchResult) {
+        alert(
+          `You chose ${userMove}\nSystem chose ${compChose}\n${matchResult}`
+        );
       }
     </script>
   </body>
