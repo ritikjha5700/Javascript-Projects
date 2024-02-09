@@ -12,7 +12,7 @@
     matchResult = getResult('Rock🪨', compChose);
     showResult('Rock🪨', compChose, matchResult);
     ">
-      Rock🪨
+      Rock 🪨
     </button>
 
     <button
@@ -21,7 +21,7 @@
     matchResult = getResult('Paper🧻', compChose);
     showResult('Paper🧻', compChose, matchResult);
     ">
-      Paper🧻
+      Paper 🧻
     </button>
 
     <button
@@ -30,21 +30,35 @@
     matchResult = getResult('Scissor✂️', compChose);
     showResult('Scissor✂️', compChose, matchResult);
     ">
-      Scissor✂️
+      Scissor ✂️
+    </button>
+
+    <button
+      id="reset"
+      onclick="localStorage.clear()
+    resetScore();
+    ">
+      Reset 🛑
     </button>
 
     <script>
       let scoreStr = localStorage.getItem("Score"); // taking out data from localStorage
-      let score = JSON.parse(scoreStr) || {
-        // if localStorage has no data then we it will set all to 0
-        win: 0,
-        lost: 0,
-        tie: 0,
-      };
+      let score;
+      resetScore(scoreStr);
 
-      score.displayResult = function () {
-        return `User won: ${score.win}\nUser lost: ${score.lost}\nTie: ${score.tie}`;
-      };
+      function resetScore(scoreStr) {
+        score = scoreStr
+          ? JSON.parse(scoreStr)
+          : {
+              // if localStorage has no data then we it will set all to 0
+              win: 0,
+              lost: 0,
+              tie: 0,
+            };
+        score.displayResult = function () {
+          return `User won: ${score.win}\nUser lost: ${score.lost}\nTie: ${score.tie}`;
+        };
+      }
 
       function getCompChoise() {
         let compChoice = Math.random() * 3;

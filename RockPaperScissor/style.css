@@ -13,3 +13,6 @@ button {
     border-radius: 7px;
     border: none;
 }
+#reset {
+    background-color: red;
+}
