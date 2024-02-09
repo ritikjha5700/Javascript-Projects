@@ -34,13 +34,16 @@
     </button>
 
     <script>
-      let score = {
+      let scoreStr = localStorage.getItem("Score"); // taking out data from localStorage
+      let score = JSON.parse(scoreStr) || {
+        // if localStorage has no data then we it will set all to 0
         win: 0,
         lost: 0,
         tie: 0,
-        displayResult: function () {
-          return `User won: ${score.win}\nUser lost: ${score.lost}\nTie: ${score.tie}`;
-        },
+      };
+
+      score.displayResult = function () {
+        return `User won: ${score.win}\nUser lost: ${score.lost}\nTie: ${score.tie}`;
       };
 
       function getCompChoise() {
@@ -80,6 +83,7 @@
       }
 
       function showResult(userMove, compMove, matchResult) {
+        localStorage.setItem("Score", JSON.stringify(score)); // storing into the localStorage
         alert(
           `You chose ${userMove}\nSystem chose ${compMove}\n${matchResult}\n\n${score.displayResult()}`
         );
