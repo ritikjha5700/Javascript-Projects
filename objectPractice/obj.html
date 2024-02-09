@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Objects</title>
+  </head>
+  <body>
+    <script>
+      let product = {
+        company: "Samsung",
+        item_name: "S21 FE",
+        "item-num": "SM0943E", // variable can't have '-' in it so we have to define that variable like this
+        price: 31999,
+        item_no: "SM4234E",
+
+        rating: {
+          rate: 4.5,
+          reviews: 874,
+        },
+
+        displayPrice: function () {
+          console.log(`Price of the product is ₹${this.price}`); // this is pointing to product
+        },
+      };
+
+      console.log(product);
+      console.log(product.company);
+      console.log(product["item-num"]);
+      console.log(product["company"]);
+      product.price = 39999;
+      console.log(product);
+      delete product.item_no;
+      console.log(product);
+      product.displayPrice();
+      console.log(product.rating.rate);
+    </script>
+  </body>
+</html>

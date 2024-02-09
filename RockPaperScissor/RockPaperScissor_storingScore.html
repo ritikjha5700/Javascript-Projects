@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Rock Paper Scissor Game</h1>
+    <button
+      onclick="
+    let compChose = getCompChoise();
+    matchResult = getResult('Rock🪨', compChose);
+    showResult('Rock🪨', compChose, matchResult);
+    ">
+      Rock🪨
+    </button>
+
+    <button
+      onclick="
+    compChose = getCompChoise();
+    matchResult = getResult('Paper🧻', compChose);
+    showResult('Paper🧻', compChose, matchResult);
+    ">
+      Paper🧻
+    </button>
+
+    <button
+      onclick="
+    compChose = getCompChoise();
+    matchResult = getResult('Scissor✂️', compChose);
+    showResult('Scissor✂️', compChose, matchResult);
+    ">
+      Scissor✂️
+    </button>
+
+    <script>
+      let score = {
+        win: 0,
+        lost: 0,
+        tie: 0,
+        displayResult: function () {
+          return `User won: ${score.win}\nUser lost: ${score.lost}\nTie: ${score.tie}`;
+        },
+      };
+
+      function getCompChoise() {
+        let compChoice = Math.random() * 3;
+        let compChose;
+
+        if (compChoice <= 1) {
+          compChose = "Rock🪨";
+        } else if (compChoice > 1 && compChoice <= 2) {
+          compChose = "Paper🧻";
+        } else {
+          compChose = "Scissor✂️";
+        }
+
+        return compChose;
+      }
+
+      function getResult(userMove, compMove) {
+        let matchResult;
+
+        if (userMove === compMove) {
+          score.tie++;
+          return "It's a tie!";
+        } else if (userMove === "Paper🧻" && compMove === "Rock🪨") {
+          score.win++;
+          return "You won!";
+        } else if (userMove === "Rock🪨" && compMove === "Scissor✂️") {
+          score.win++;
+          return "You won!";
+        } else if (userMove === "Scissor✂️" && compMove === "Paper🧻") {
+          score.win++;
+          return "You won!";
+        } else {
+          score.lost++;
+          return "System Won!";
+        }
+      }
+
+      function showResult(userMove, compMove, matchResult) {
+        alert(
+          `You chose ${userMove}\nSystem chose ${compMove}\n${matchResult}\n\n${score.displayResult()}`
+        );
+      }
+    </script>
+  </body>
+</html>
