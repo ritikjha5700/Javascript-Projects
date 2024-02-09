@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Stringify in JSON
+
+      /*
+      let product = {
+        name: "Jeans",
+        price: 3199,
+        size: 30,
+        rating: {
+          stars: 4.5,
+          review: 435,
+        },
+      };
+      console.log(typeof product);
+      console.log(product);
+      let str = JSON.stringify(product);
+      console.log(typeof str);
+      console.log(str);
+      */
+
+      // ## localStorage
+      // *** setItem
+
+      /* localStorage.setItem("Name", "Ritik");
+        localStorage.setItem("product", "product"); // this is a wrong way of storing object. It will store garbage value
+        localStorage.setItem("product", str);
+        */
+
+      // *** getItem
+
+      console.log(localStorage.getItem("product")); // product is already saved in our localStorage so we can access it even after commenting the defined objects
+      let product2 = JSON.parse(localStorage.getItem("product")); // converting string to object
+      console.log(product2);
+      console.log(typeof product2);
+
+      // ## Free storage
+
+      localStorage.removeItem("Name"); // removing single item
+      localStorage.clear(); // clears the whole storage
+
+      // we don't store any important data like password, DOB in local storage as it can be easily accessable the others
+    </script>
+  </body>
+</html>
