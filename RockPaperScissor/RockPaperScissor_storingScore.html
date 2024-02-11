@@ -9,8 +9,8 @@
     <button
       onclick="
     let compChose = getCompChoise();
-    matchResult = getResult('Rock🪨', compChose);
-    showResult('Rock🪨', compChose, matchResult);
+    matchResult = getResult('Rock 🪨', compChose);
+    showResult('Rock 🪨', compChose, matchResult);
     ">
       Rock 🪨
     </button>
@@ -18,8 +18,8 @@
     <button
       onclick="
     compChose = getCompChoise();
-    matchResult = getResult('Paper🧻', compChose);
-    showResult('Paper🧻', compChose, matchResult);
+    matchResult = getResult('Paper 🧻', compChose);
+    showResult('Paper 🧻', compChose, matchResult);
     ">
       Paper 🧻
     </button>
@@ -27,8 +27,8 @@
     <button
       onclick="
     compChose = getCompChoise();
-    matchResult = getResult('Scissor✂️', compChose);
-    showResult('Scissor✂️', compChose, matchResult);
+    matchResult = getResult('Scissor ✂️', compChose);
+    showResult('Scissor ✂️', compChose, matchResult);
     ">
       Scissor ✂️
     </button>
@@ -40,6 +40,13 @@
     ">
       Reset 🛑
     </button>
+
+    <div class="score-board">
+      <h3 id="score"></h3>
+      <h3 id="user-move"></h3>
+      <h3 id="system-move"></h3>
+      <h3 id="result"></h3>
+    </div>
 
     <script>
       let scoreStr = localStorage.getItem("Score"); // taking out data from localStorage
@@ -56,8 +63,9 @@
               tie: 0,
             };
         score.displayResult = function () {
-          return `User won: ${score.win}\nUser lost: ${score.lost}\nTie: ${score.tie}`;
+          return `User won: ${score.win} \xa0\xa0|\xa0\xa0 User lost: ${score.lost} \xa0\xa0|\xa0\xa0 Tie: ${score.tie}`;
         };
+        showResult();
       }
 
       function getCompChoise() {
@@ -65,11 +73,11 @@
         let compChose;
 
         if (compChoice <= 1) {
-          compChose = "Rock🪨";
+          compChose = "Rock 🪨";
         } else if (compChoice > 1 && compChoice <= 2) {
-          compChose = "Paper🧻";
+          compChose = "Paper 🧻";
         } else {
-          compChose = "Scissor✂️";
+          compChose = "Scissor ✂️";
         }
 
         return compChose;
@@ -81,13 +89,13 @@
         if (userMove === compMove) {
           score.tie++;
           return "It's a tie!";
-        } else if (userMove === "Paper🧻" && compMove === "Rock🪨") {
+        } else if (userMove === "Paper 🧻" && compMove === "Rock 🪨") {
           score.win++;
           return "You won!";
-        } else if (userMove === "Rock🪨" && compMove === "Scissor✂️") {
+        } else if (userMove === "Rock 🪨" && compMove === "Scissor ✂️") {
           score.win++;
           return "You won!";
-        } else if (userMove === "Scissor✂️" && compMove === "Paper🧻") {
+        } else if (userMove === "Scissor ✂️" && compMove === "Paper 🧻") {
           score.win++;
           return "You won!";
         } else {
@@ -98,9 +106,18 @@
 
       function showResult(userMove, compMove, matchResult) {
         localStorage.setItem("Score", JSON.stringify(score)); // storing into the localStorage
-        alert(
-          `You chose ${userMove}\nSystem chose ${compMove}\n${matchResult}\n\n${score.displayResult()}`
-        );
+
+        document.querySelector("#score").innerText = score.displayResult();
+
+        document.querySelector("#user-move").innerText = userMove
+          ? `You chose ${userMove}`
+          : "";
+
+        document.querySelector("#system-move").innerText = compMove
+          ? `System chose ${compMove}`
+          : "";
+
+        document.querySelector("#result").innerText = matchResult || "";
       }
     </script>
   </body>
