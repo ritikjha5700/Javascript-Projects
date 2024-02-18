@@ -7,38 +7,33 @@
   <body>
     <h1>Rock Paper Scissor Game</h1>
     <button
+      class="btn"
       onclick="
     let compChose = getCompChoise();
     matchResult = getResult('Rock 🪨', compChose);
     showResult('Rock 🪨', compChose, matchResult);
     ">
-      Rock 🪨
+      <img class="gesture" src="images/rock.png" alt="Rock gesture" />
     </button>
 
     <button
+      class="btn"
       onclick="
     compChose = getCompChoise();
     matchResult = getResult('Paper 🧻', compChose);
     showResult('Paper 🧻', compChose, matchResult);
     ">
-      Paper 🧻
+      <img class="gesture" src="images/paper.png" alt="Rock gesture" />
     </button>
 
     <button
+      class="btn"
       onclick="
     compChose = getCompChoise();
     matchResult = getResult('Scissor ✂️', compChose);
     showResult('Scissor ✂️', compChose, matchResult);
     ">
-      Scissor ✂️
-    </button>
-
-    <button
-      id="reset"
-      onclick="localStorage.clear()
-    resetScore(); // set all values to zero
-    ">
-      Reset 🛑
+      <img class="gesture" src="images/scissor.png" alt="Rock gesture" />
     </button>
 
     <div class="score-board">
@@ -47,6 +42,14 @@
       <h3 id="system-move"></h3>
       <h3 id="result"></h3>
     </div>
+
+    <button
+      id="reset"
+      onclick="localStorage.clear()
+  resetScore(); // set all values to zero
+  ">
+      Reset 🛑
+    </button>
 
     <script>
       let scoreStr = localStorage.getItem("Score"); // taking out data from localStorage
