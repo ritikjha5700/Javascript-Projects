@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #btn {
+        width: 100px;
+        height: 50px;
+        font-size: 30px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .js-odd {
+        background-color: rgb(226, 83, 83);
+      }
+
+      .js-even {
+        background-color: rgb(169, 237, 100);
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="greet"></h3>
+    <button id="btn" onclick="btnPressed()"></button>
+    <script>
+      let cnt = localStorage.getItem("count") || 0;
+
+      function btnPressed() {
+        cnt++;
+        localStorage.setItem("count", cnt);
+        updateButton();
+      }
+
+      function updateButton() {
+        let button = document.querySelector("#btn");
+        button.innerText = cnt;
+
+        if (cnt % 2 === 0) {
+          button.classList.remove("js-odd");
+          button.classList.add("js-even");
+        } else {
+          button.classList.remove("js-even");
+          button.classList.add("js-odd");
+        }
+      }
+      updateButton();
+
+      function greeting(personName = "Dear") {
+        // 'Dear' is default if nothing is passed it will print "Dear"
+        let myDate = new Date();
+        let hr = myDate.getHours();
+
+        let heading = document.querySelector(".greet");
+
+        if (hr > 5 && hr < 12) {
+          heading.innerText = `Good Morning ${personName}!`;
+        } else if (hr >= 12 && hr <= 18) {
+          heading.innerText = `Good Afternoon ${personName}!`;
+        } else {
+          heading.innerText = `Good Night ${personName}!`;
+        }
+      }
+
+      greeting("Ritik");
+    </script>
+  </body>
+</html>
